@@ -5,6 +5,13 @@ import Button from "../src/Components/button";
 
 function Products() {
   const [Product, setProduct] = useState([]);
+  const [show, setshow] = useState(false)
+   const [image, setimage] = useState("")
+   const [name, setname] = useState("")
+   const [price, setprice] = useState("")
+   const [stock, setstock] = useState("")
+   const [description, setdescription] = useState("")
+   const [category, setcategory] = useState("")
 
   useEffect(() => {
     GetProduct();
@@ -22,7 +29,7 @@ function Products() {
 
   return (
     <AdminLayout>
-      <Button name="Add product" />
+      <Button name="Add product" onClick={() => { setshow(true) }} />
       <div className=" mx-6 shadow-2xl rounded-lg ">
         <table className="min-w-full bg-[#FAF7F3]">
           <thead className="bg-green-500">
@@ -71,6 +78,25 @@ function Products() {
           </tbody>
         </table>
       </div>
+
+      {show && (
+        <div>
+          <div>
+            <div className='bg-gray-100 flex flex-col w-[29rem] h-[37rem] p-9 border-1 border-gray-500 rounded-2xl absolute top-17 right-120'>
+              <h1 className='text-center mb-10 text-3xl font-bold'>Add Product</h1>
+              <input type="text" value={name} onChange={(e) => setname(e.target.value)} placeholder='Name' className='border-1 bg-white border-gray-500 p-3 rounded' />
+              <input type="text" value={price} onChange={(e) => setprice(e.target.value)} placeholder='Price' className='border-1 bg-white border-gray-500 p-3 mt-5 rounded' />
+              <input type="number" value={stock} onChange={(e) => setstock(e.target.value)} placeholder='Stock' className='border-1 bg-white border-gray-500 p-3 mt-5 rounded' />
+              <input type="text" value={description} onChange={(e) => setdescription(e.target.value)} placeholder='Description' className='border-1 bg-white border-gray-500 p-3 mt-5 rounded' />
+              <input type="file" value={image} onChange={(e) => setimage(e.target.files[0 ])} placeholder='Name' className='border-1 bg-white border-gray-500 p-3 rounded mt-5' />
+              <div className='flex justify-center gap-15 mt-14'>
+                <button onClick={() => EditProduct()} className='font-medium bg-green-400 px-5 py-3 rounded-lg hover:bg-green-500 cursor-pointer transition-all duration-150 ease-in-out'>Submit</button>
+                <button onClick={() => setshow(false)} className='font-medium bg-red-400 px-4 py-2 rounded-lg hover:bg-red-500 cursor-pointer transition-all duration-150 ease-in-out'>Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </AdminLayout>
   );
 }
