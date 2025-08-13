@@ -22,10 +22,10 @@ function Products() {
   return (
     <AdminLayout>
       <div className=" m-8 shadow-2xl rounded-lg ">
-        <table className="min-w-full bg-[#FAF7F3] border border-gray-300">
-          <thead className="bg-[#819067]">
-            <tr>
-              <th className="py-3 px-4 border">_id</th>
+        <table className="min-w-full bg-[#FAF7F3]">
+          <thead className="bg-green-500">
+            <tr className="text-[1.2rem]">
+              <th className="py-3 px-4 border">_Id</th>
               <th className="py-3 px-4 border">Image</th>
               <th className="py-3 px-4 border">Name</th>
               <th className="py-3 px-4 border">Price</th>
@@ -35,7 +35,7 @@ function Products() {
               <th className="py-3 px-4 border">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="font-semibold text-[1.1rem]">
             {Product.map((item, index) => (
               <tr
                 key={index}
@@ -52,11 +52,11 @@ function Products() {
                 <td className="py-3 px-4 border">{item.name}</td>
                 <td className="py-3 px-4 border">₹{item.price}</td>
                 <td className="py-3 px-4 border">{item.stock}</td>
-                <td className="py-3 px-4 border">{item.category}</td>
-                <td className="py-3 px-4 border text-sm max-w-[250px] truncate">
+                <td className="py-3 px-4 border w-[100px]">{item.category}</td>
+                <td className="py-3 px-4 border text-sm w-[250px] truncate">
                   {item.description}
                 </td>
-                <td className="py-3 px-4 border flex flex-col gap-2">
+                <td className="py-6 px-8 border-b-1 flex flex-col gap-2">
                   <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
                     Edit
                   </button>

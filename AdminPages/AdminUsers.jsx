@@ -17,23 +17,23 @@ function AdminUsers() {
         <AdminLayout>
             <div className=" p-10 shadow-2xl rounded-lg ">
                 <table className="min-w-full bg-[#FAF7F3] border border-gray-300">
-                    <thead className="bg-[#819067]">
+                    <thead className="bg-green-500 text-[1.3rem]">
                         <tr>
-                            <th className="py-2 px-3 border">_id</th>
+                            <th className="py-2 px-3 border">_Id</th>
                             <th className="py-2 px-3 border">Image</th>
                             <th className="py-2 px-3 border">Name</th>
                             <th className="py-2 px-3 border">Email</th>
                             <th className="py-2 px-3 border">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {user.map((item, index) => (
                             <tr
                                 key={index}
-                                className="text-center hover:bg-gray-100 transition duration-200 hover:scale-101"
+                                className="text-center hover:bg-gray-100 transition duration-200 hover:scale-101 text-[1.1rem] font-semibold"
                             >
                                 <td className="py-2 px-3 border">{index + 1}</td>
-                                <td className="py-2 px-3 border">
+                                <td className="p-6 border">
                                     <img
                                         className="w-[8rem] h-[6rem] object-cover rounded-md"
                                         src={`http://localhost:3200/${item.image}`}
@@ -42,7 +42,7 @@ function AdminUsers() {
                                 </td>
                                 <td className="py-2 px-3 border">{item.name}</td>
                                 <td className="py-2 px-3 border">{item.email}</td>
-                                <td className="py-3 px-3 border flex flex-col gap-2">
+                                <td className="py-9 px-3 border-b-1 flex flex-col gap-2">
                                     <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
                                         Edit
                                     </button>
