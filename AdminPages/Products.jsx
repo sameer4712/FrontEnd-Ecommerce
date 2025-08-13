@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AdminLayout from "../Layout/AdminLayout";
 import api from "../Global/Axios";
+import Button from "../src/Components/button";
 
 function Products() {
   const [Product, setProduct] = useState([]);
@@ -21,7 +22,8 @@ function Products() {
 
   return (
     <AdminLayout>
-      <div className=" m-8 shadow-2xl rounded-lg ">
+      <Button name="Add product" />
+      <div className=" mx-6 shadow-2xl rounded-lg ">
         <table className="min-w-full bg-[#FAF7F3]">
           <thead className="bg-green-500">
             <tr className="text-[1.2rem]">

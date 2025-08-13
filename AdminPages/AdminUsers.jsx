@@ -1,6 +1,7 @@
 import AdminLayout from "../Layout/AdminLayout"
 import api from "../Global/Axios"
 import { useEffect, useState } from "react"
+import Button from "../src/Components/button"
 
 function AdminUsers() {
     const [user, setuser] = useState([])
@@ -15,7 +16,8 @@ function AdminUsers() {
     }
     return (
         <AdminLayout>
-            <div className=" p-10 shadow-2xl rounded-lg ">
+
+            <div className=" m-9 shadow-2xl rounded-lg ">
                 <table className="min-w-full bg-[#FAF7F3] border border-gray-300">
                     <thead className="bg-green-500 text-[1.3rem]">
                         <tr>
