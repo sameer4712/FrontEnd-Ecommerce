@@ -38,6 +38,7 @@ function Categories() {
         setdescription("")
     }
     async function RemoveCategory(index) {
+        
         const Remove = await api.delete(`/admin/deletecategory/${index}`)
         GetCategory()
 

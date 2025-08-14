@@ -23,6 +23,7 @@ function Products() {
   const [oldcategory, setoldcategory] = useState("")
   const [id, setid] = useState("")
 
+
   useEffect(() => {
     GetProduct();
   }, []);
@@ -97,6 +98,12 @@ function Products() {
     seteditshow(false)
   }
 
+  async function Remove(index) {
+    
+    const deleteproduct = await api.delete(`/admin/deleteProduct/${index}`)
+    GetProduct()
+  }
+
 
   return (
     <AdminLayout>
@@ -149,7 +156,7 @@ function Products() {
                   }} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
                     Edit
                   </button>
-                  <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                  <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600" onClick={() => { Remove(item._id) }}>
                     Delete
                   </button>
                 </td>
