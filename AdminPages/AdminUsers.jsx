@@ -1,7 +1,6 @@
 import AdminLayout from "../Layout/AdminLayout"
 import api from "../Global/Axios"
 import { useEffect, useState } from "react"
-import Button from "../src/Components/button"
 
 function AdminUsers() {
     const [user, setuser] = useState([])
