@@ -43,12 +43,9 @@ function AdminUsers() {
                                 </td>
                                 <td className="py-2 px-3 border">{item.name}</td>
                                 <td className="py-2 px-3 border">{item.email}</td>
-                                <td className="py-9 px-3 border-b-1 flex flex-col gap-2">
-                                    <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
-                                        Edit
-                                    </button>
-                                    <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-                                        Delete
+                                <td className="py-9 border-b-1 gap-2">
+                                    <button className="bg-red-500 text-white p-5  py-3 rounded hover:bg-red-600">
+                                        Inactive
                                     </button>
                                 </td>
                             </tr>
