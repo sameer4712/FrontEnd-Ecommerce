@@ -14,10 +14,11 @@ function AdminLogin() {
                 email: email,
                 password: password
             }
-            const admin = await api.post('/admin/login', datas)
+            const admin = await api.post('/admin/Login', datas)
             if(admin.data.success)
             {
-               navigate('/admin/dashboard')
+                localStorage.setItem('admin',true)
+                navigate('/admin/dashboard')
             }
 
         }

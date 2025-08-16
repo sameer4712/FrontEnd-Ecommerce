@@ -99,7 +99,7 @@ function Products() {
   }
 
   async function Remove(index) {
-    
+
     const deleteproduct = await api.delete(`/admin/deleteProduct/${index}`)
     GetProduct()
   }

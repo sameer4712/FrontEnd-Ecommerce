@@ -34,16 +34,16 @@ function AdminUsers() {
                                 className="text-center hover:bg-gray-100 transition duration-200 hover:scale-101 text-[1.1rem] font-semibold"
                             >
                                 <td className="py-2 px-3 border">{index + 1}</td>
-                                <td className="p-6 border">
+                                <td className="border py-3">
                                     <img
-                                        className="w-[8rem] h-[6rem] object-cover rounded-md"
+                                        className="w-[10rem] h-[7rem]  object-cover  mx-auto"
                                         src={`http://localhost:3200/${item.image}`}
                                         alt={item.name}
                                     />
                                 </td>
                                 <td className="py-2 px-3 border">{item.name}</td>
                                 <td className="py-2 px-3 border">{item.email}</td>
-                                <td className="py-9 border-b-1 gap-2">
+                                <td className="border-b-1 gap-2">
                                     <button className="bg-red-500 text-white p-5  py-3 rounded hover:bg-red-600">
                                         Inactive
                                     </button>

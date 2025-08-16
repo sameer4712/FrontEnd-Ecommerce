@@ -38,14 +38,13 @@ function Categories() {
         setdescription("")
     }
     async function RemoveCategory(index) {
-        
+
         const Remove = await api.delete(`/admin/deletecategory/${index}`)
         GetCategory()
 
     }
-    async function EditCategory()
-    {
-        const category = await api.put(`/admin/editcategory/${id}`,{name:oldName,description:oldDescription})
+    async function EditCategory() {
+        const category = await api.put(`/admin/editcategory/${id}`, { name: oldName, description: oldDescription })
         GetCategory()
         seteditcategory(false)
     }
@@ -75,8 +74,9 @@ function Categories() {
                                     {item.description}
                                 </td>
                                 <td className="py-6 px-3 border-b-1 flex flex-col gap-2">
-                                    <button className="bg-blue-500 text-white  rounded hover:bg-blue-600"
-                                        onClick={() => {seteditcategory(true)
+                                    <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                                        onClick={() => {
+                                            seteditcategory(true)
                                             setoldName(item.name)
                                             setoldDescription(item.description)
                                             setid(item._id)
