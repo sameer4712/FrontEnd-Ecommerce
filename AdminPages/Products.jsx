@@ -169,7 +169,7 @@ function Products() {
       {show && (
         <div>
           <div>
-            <div className='bg-gray-100 flex flex-col w-[29rem] h-[40rem] p-9 border-1 border-gray-500 rounded-2xl absolute top-10 right-115'>
+            <div className='bg-gray-100 flex flex-col w-[29rem] h-[42rem] p-9 border-1 border-gray-500 rounded-2xl absolute top-10 right-115'>
               <h1 className='text-center mb-10 text-3xl font-bold'>Add Product</h1>
               <input type="text" value={name} onChange={(e) => setname(e.target.value)} placeholder='Name' className='border-1 bg-white border-gray-500 p-3 rounded' />
               <input type="text" value={price} onChange={(e) => setprice(e.target.value)} placeholder='Price' className='border-1 bg-white border-gray-500 p-3 mt-5 rounded' />
@@ -198,8 +198,8 @@ function Products() {
 
       {editshow && (<div>
         <div>
-          <div className='bg-gray-100 flex flex-col w-[29rem] h-[40rem] p-9 border-1 border-gray-500 rounded-2xl absolute top-10 right-115'>
-            <h1 className='text-center mb-10 text-3xl font-bold'>Add Product</h1>
+          <div className='bg-gray-100 flex flex-col w-[29rem] h-[42rem] p-9 border-1 border-gray-500 rounded-2xl absolute top-10 right-115'>
+            <h1 className='text-center mb-10 text-3xl font-bold'>Edit Product</h1>
             <input type="text" value={oldname} onChange={(e) => setoldname(e.target.value)} placeholder='Name' className='border-1 bg-white border-gray-500 p-3 rounded' />
             <input type="text" value={oldprice} onChange={(e) => setoldprice(e.target.value)} placeholder='Price' className='border-1 bg-white border-gray-500 p-3 mt-5 rounded' />
             <input type="number" value={oldstock} onChange={(e) => setoldstock(e.target.value)} placeholder='Stock' className='border-1 bg-white border-gray-500 p-3 mt-5 rounded' />
