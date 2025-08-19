@@ -10,6 +10,7 @@ import AdminLogin from '../AdminPages/AdminLogin'
 import  Protected from './Components/protected'
 import UserLogin from '../UserPages/UserLogin'
 import UserHomePage from '../UserPages/UserHomePage'
+import Product from '../UserPages/Product'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
 
       <Route path='/user/login' element={<UserLogin />} />
       <Route path='/' element={<UserHomePage />} />
+      <Route path='/Product/:id' element={<Product />} />
     </Routes>
   )
 }
