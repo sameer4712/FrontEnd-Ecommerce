@@ -8,6 +8,7 @@ import Categories from '../AdminPages/Categories'
 import OrderList from '../AdminPages/OrderList'
 import AdminLogin from '../AdminPages/AdminLogin'
 import  Protected from './Components/protected'
+import UserLogin from '../UserPages/UserLogin'
 
 function App() {
 
@@ -20,6 +21,10 @@ function App() {
       <Route path='/admin/users' element={<Protected><AdminUsers /></Protected>} />
       <Route path='/admin/category' element={<Protected><Categories /></Protected>} />
       <Route path='/admin/orderlist' element={<Protected><OrderList /></Protected>} />
+
+      {/* User Routes */}
+
+      <Route path='/' element={<UserLogin />} />
     </Routes>
   )
 }
