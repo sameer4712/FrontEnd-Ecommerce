@@ -9,6 +9,7 @@ import OrderList from '../AdminPages/OrderList'
 import AdminLogin from '../AdminPages/AdminLogin'
 import  Protected from './Components/protected'
 import UserLogin from '../UserPages/UserLogin'
+import UserHomePage from '../UserPages/UserHomePage'
 
 function App() {
 
@@ -24,7 +25,8 @@ function App() {
 
       {/* User Routes */}
 
-      <Route path='/' element={<UserLogin />} />
+      <Route path='/user/login' element={<UserLogin />} />
+      <Route path='/' element={<UserHomePage />} />
     </Routes>
   )
 }
