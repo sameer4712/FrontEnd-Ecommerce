@@ -25,7 +25,7 @@ function UserHomePage() {
         <div className="w-full bg-[#f2f0f1] text-center flex justify-center items-center flex-col">
           <h1 className="text-6xl font-extrabold mb-3">FIND CLOTHES <br />THAT MATCHES <br />YOUR STYLE</h1>
           <p className="text-[13px] text-gray-500 font-extralight">Browse through our range of meticulously crafted garments,designed to bring out your individuality and cater to your sense of style</p>
-          <button className="text-l mt-5 bg-black text-white p-4 rounded-2xl">Shop Now </button>
+          <button className="text-l mt-5 bg-black text-white p-4 rounded-2xl cursor-pointer" >Shop Now </button>
           <div className="flex gap-19 mt-7 text-xl font-mono text-gray-600">
             <div className="flex flex-col">
               <span>100+</span>
@@ -51,7 +51,7 @@ function UserHomePage() {
 
       <h1 className="text-5xl font-bold text-center mt-10 text-gray-700 font-serif" >Our Products</h1>
 
-      <div className="flex justify-around mt-10 p-6 gap-4 cursor-pointer" >
+      <div className="flex justify-around mt-10 p-6 gap-4 cursor-pointer" id="prod">
         {product.map((item, index) => (
           <div key={index} className="text-center text-xl gap-5" onClick={() => { navigate(`/Product/${item._id}`) }} >
             <img src={"http://localhost:3200/" + item.image} alt="" className="w-full h-[20rem] rounded-l" />

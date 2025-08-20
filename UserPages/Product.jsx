@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import api from "../Global/Axios"
 import UserLayout from "../Layout/UserLayout"
 
@@ -7,6 +7,7 @@ function Product() {
     const [quantity, setquantity] = useState(1)
     const { id } = useParams()
     const [product, setproduct] = useState([])
+    const navigate = useNavigate('')
     useEffect(() => {
         GetProduct()
     }, [])
@@ -19,6 +20,7 @@ function Product() {
 
     async function AddToCart(_id) {
         const cart = await api.post(`/user/cart/${_id}`,{quantity})
+        
 
         
     }
@@ -43,7 +45,7 @@ function Product() {
 
                     </div>
                     <p className="text-2xl font-mono mt-2 mb-5">{product.description}</p>
-                    <button onClick={() => AddToCart(product._id)} className="mt-8 bg-blue-300 shadow-xl p-5 text-gray-600 cursor-pointer rounded-xl text-xl font-semibold hover:bg-blue-400 hover:scale-110 transition-all duration-200 ease-in-out"> Add to Cart</button>
+                    <button onClick={() => {AddToCart(product._id); navigate('/user/cart')}} className="mt-8 bg-blue-300 shadow-xl p-5 text-gray-600 cursor-pointer rounded-xl text-xl font-semibold hover:bg-blue-400 hover:scale-110 transition-all duration-200 ease-in-out"> Add to Cart</button>
                 </div>
 
             </div>

@@ -11,6 +11,7 @@ import  Protected from './Components/protected'
 import UserLogin from '../UserPages/UserLogin'
 import UserHomePage from '../UserPages/UserHomePage'
 import Product from '../UserPages/Product'
+import Cart from '../UserPages/Cart'
 
 function App() {
 
@@ -29,6 +30,8 @@ function App() {
       <Route path='/user/login' element={<UserLogin />} />
       <Route path='/' element={<UserHomePage />} />
       <Route path='/Product/:id' element={<Product />} />
+      <Route path='/user/cart' element={<Cart />} />
+
     </Routes>
   )
 }

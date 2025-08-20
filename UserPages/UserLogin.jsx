@@ -18,6 +18,7 @@ function UserLogin() {
 
             const user = await api.post('/user/Login', info)
             if (user.data.success) {
+                localStorage.setItem('user',true)
                 navigate('/')
             }
             else{
