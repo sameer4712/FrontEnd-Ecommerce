@@ -12,6 +12,7 @@ import UserLogin from '../UserPages/UserLogin'
 import UserHomePage from '../UserPages/UserHomePage'
 import Product from '../UserPages/Product'
 import Cart from '../UserPages/Cart'
+import Order from '../UserPages/Order'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
       <Route path='/' element={<UserHomePage />} />
       <Route path='/Product/:id' element={<Product />} />
       <Route path='/user/cart' element={<Cart />} />
+      <Route path='/user/order' element={<Order />} />
 
     </Routes>
   )

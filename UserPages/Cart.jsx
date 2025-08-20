@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import api from "../Global/Axios";
 import UserLayout from "../Layout/UserLayout"
+import { useNavigate } from "react-router-dom";
 
 
 function Cart() {
     const user = localStorage.getItem('user')
     const [product, setproduct] = useState([])
     const [cartitems, setcartitems] = useState([])
+    const navigate = useNavigate('')
 
     useEffect(() => {
         ShowCart()
@@ -31,7 +33,7 @@ function Cart() {
     async function DeleteOrder(_id) {
         const remove = await api.delete(`/user/deleteCart/${_id}`)
         ShowCart()
-        
+
     }
     return (
         <UserLayout>
@@ -80,18 +82,22 @@ function Cart() {
                                     </div>
                                 </div>
                                 <div>
-                                <button className="ml-20 cursor-pointer text-2xl text-red-400" onClick={()=>DeleteOrder(item.productId)}> x </button>
-                                <p className="font-semibold font-mono text-xl mt-5 ">
-                                    {item.subtotal}
-                                </p>
+                                    <button className="ml-20 cursor-pointer text-2xl text-red-400" onClick={() => DeleteOrder(item.productId)}> x </button>
+                                    <p className="font-semibold font-mono text-xl mt-5 ">
+                                        {item.subtotal}
+                                    </p>
 
                                 </div>
                             </div>
                         ))
                     ) : (
-                        <p className="text-gray-500 text-center text-xl py-10">
-                            🛍️ Your cart is empty
-                        </p>
+                        <div className="flex flex-col ">
+
+                            <p className="text-gray-500 text-center text-xl py-10">
+                                🛍️ Your cart is empty
+                            </p>
+                            <button onClick={()=>{navigate('/user/order')}} className="text-3xl bg-green-400 p-3 font-sans font-semibold rounded-xl hover:bg-green-500 transition-all duration-200 ease-in-out cursor-pointer py-5">View Order</button>
+                        </div>
                     )}
 
                     {cartitems && cartitems.length > 0 && (
@@ -105,7 +111,7 @@ function Cart() {
 
                             <button
                                 className="mt-6 bg-blue-500 text-white p-5 text-xl rounded-2xl hover:bg-blue-700 transition cursor-pointer"
-                                onClick={() => {CheckOrder();window.location.reload()}}
+                                onClick={() => { CheckOrder(); window.location.reload() }}
                             >
                                 Checkout
                             </button>
