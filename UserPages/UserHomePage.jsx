@@ -62,7 +62,7 @@ function UserHomePage() {
         ))}
       </div>
       <div className="text-center">
-        <button className="bg-black text-white p-4 rounded-2xl text-l">View All</button>
+        <button className="bg-black text-white px-6 py-4 rounded-2xl text-l cursor-pointer font-mono">View All</button>
       </div>
 
 
