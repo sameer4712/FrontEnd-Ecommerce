@@ -21,43 +21,58 @@ function Order() {
 
 
   return (
-    // <UserLayout>
-    <div className="p-6 max-w-xl mx-auto bg-white shadow-lg rounded-xl">
-      <h1 className="text-2xl font-bold mb-4">📦 My Orders</h1>
+    <UserLayout>
+      <div className="p-6 max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold  mb-11 mt-24 text-center text-gray-800">
+          📦 My Orders
+        </h1>
 
-      {order.length > 0 ? (
-        <ul className="space-y-3 absolute top-100">
-          {order.map((item, index) => (
-            <li
-              key={index}
-              className="p-4 border rounded-lg flex justify-between items-center"
-            >
-              <div >
-                {item.items.map((it) => (
-                  <div>
-                    <p className="font-semibold">{it.productName}</p>
-                    <p className="text-gray-600">₹{it.productPrice}</p>
-                    <p className="text-gray-600">₹{it.quantity}</p>
-                    <p className="text-gray-600">₹{it.subtotal}</p>
+        {order.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            {order.map((item, index) => (
+              <div
+                key={index}
+                className="p-5 border border-gray-300 rounded-2xl shadow-md bg-white hover:scale-105 cursor-pointer transition-all ease-in-out "
+              >
+                <div className="space-y-4 mb-4">
+                  {item.items.map((it, i) => (
+                    <div key={i} className="border-b pb-2 flex flex-col gap-2">
+                      <p className="font-bold text-2xl">{it.productName}</p>
+                      <p className="text-gray-600 text-lg font-mono">₹ {it.productPrice}</p>
+                      <p className="text-gray-700 text-base">Qnty: {it.quantity}</p>
+                      <p className="text-blue-500 font-bold font-mono ">Subtotal: ₹ {it.subtotal}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-semibold">Status:</span>
+                    <span className="px-3 py-1 rounded-lg bg-blue-100 text-blue-700 text-sm font-medium">
+                      {item.deliveryStatus}
+                    </span>
                   </div>
 
-                ))}
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-semibold text-md">Date:</span>
+                    <span className="text-sm text-gray-500">
+                      {new Date(item.createdAt).toLocaleDateString()}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between border-t pt-7">
+                    <span className="text-2xl font-bold">Total:</span>
+                    <span className="text-xl font-bold text-green-600">₹{item.total}</span>
+                  </div>
+                </div>
               </div>
-              <span className="text-gray-600"> Total:{item.total}</span>
-              <span className="text-sm px-3 py-1 rounded-full bg-blue-100 text-blue-700">
-                {item.deliveryStatus}
-              </span>
-              <span className="text-sm px-3 py-1 rounded-full bg-blue-100 text-blue-700">
-                {item.createdAt}
-              </span>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p >No orders found.</p>
-      )}
-    </div>
-    // </UserLayout>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-gray-600 mt-10">No orders found.</p>
+        )}
+      </div>
+    </UserLayout>
   )
 }
 
