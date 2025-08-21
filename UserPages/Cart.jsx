@@ -82,7 +82,7 @@ function Cart() {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className="ml-20 cursor-pointer text-2xl text-red-400" onClick={() => DeleteOrder(item.productId)}> x </button>
+                                    <button className="ml-20 cursor-pointer text-2xl text-red-400" onClick={() =>{ DeleteOrder(item.productId); window.location.reload()}}> x </button>
                                     <p className="font-semibold font-mono text-xl mt-5 ">
                                         {item.subtotal}
                                     </p>
