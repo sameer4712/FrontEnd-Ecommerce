@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Cart() {
-    const user = localStorage.getItem('user')
+    const User = localStorage.getItem('user')
     const [product, setproduct] = useState([])
     const [cartitems, setcartitems] = useState([])
     const navigate = useNavigate('')
@@ -37,6 +37,7 @@ function Cart() {
     }
     return (
         <UserLayout>
+            {User ? (<h1>hello</h1>):(<h1>no hello</h1>)}
             <div className="min-h-screen bg-gray-100 p-6 flex items-center justify-center mt-7">
                 <div className="w-full max-w-3xl bg-white p-6 rounded-2xl shadow-lg border border-gray-300">
                     <h1 className="text-3xl font-bold mb-6">🛒 Shopping Cart</h1>

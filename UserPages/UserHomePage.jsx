@@ -45,7 +45,7 @@ function UserHomePage() {
           </div>
         </div>
         <div>
-          <img src={Brand} alt="" className="w-[39rem] object-cover" />
+          <img src={Brand} alt="" className="w-[39rem] object-cover mt-12" />
         </div>
       </div>
 
