@@ -46,7 +46,7 @@ function UserLogin() {
                         <input type="password" value={password} className='border border-gray-300 focus:outline-none focus:ring-1  focus:ring-indigo-500  p-2 rounded' onChange={(e) => { setpassword(e.target.value) }} />
                     </div>
                     <div className='flex flex-col px-[10%] mt-4'>
-                        <button className=' bg-green-500 text-white font-semi-bold text-xl px-2 py-3 rounded-xl hover:scale-105 transition-all duration-150 ' onClick={() => UserLogin()}>Log In</button>
+                        <button className=' bg-green-500 text-white font-semi-bold text-xl px-2 py-3 rounded-xl hover:scale-105 transition-all duration-150 cursor-pointer' onClick={() => UserLogin()}>Log In</button>
                     </div>
                     <div className="flex flex-col items-center justify-center py-3">
 
