@@ -14,6 +14,7 @@ import Product from '../UserPages/Product'
 import Cart from '../UserPages/Cart'
 import Order from '../UserPages/Order'
 import SignUp from '../UserPages/SignUp'
+import Profile from '../UserPages/Profile'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
       <Route path='/user/cart' element={<Cart />} />
       <Route path='/user/order' element={<Order />} />
       <Route path='/user/sign-up' element={<SignUp />} />
+      <Route path='/user/profile' element={<Profile />} />
 
     </Routes>
   )

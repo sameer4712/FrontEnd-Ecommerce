@@ -19,7 +19,10 @@ function Cart() {
     async function ShowCart() {
         const cart = await api.get('/user/cart')
         setproduct(cart.data.Cart[0]);
+        console.log(cart.data.Cart[0]);
+
         setcartitems(cart.data.Cart[0].cartitems);
+        console.log(cart.data.Cart[0].cartitems);
     }
     async function EditQuantity(_id, quantity) {
         if (quantity < 1) return;
@@ -29,6 +32,7 @@ function Cart() {
     async function CheckOrder() {
         const order = await api.post('/user/CreateOrder')
         ShowCart()
+
     }
     async function DeleteOrder(_id) {
         const remove = await api.delete(`/user/deleteCart/${_id}`)
@@ -132,7 +136,7 @@ function Cart() {
 
                                 <button
                                     className="mt-6 bg-blue-500 text-white p-5 text-xl rounded-2xl hover:bg-blue-700 transition cursor-pointer"
-                                    onClick={() => CheckOrder()}
+                                    onClick={() => { CheckOrder(); window.location.reload() }}
                                 >
                                     Checkout
                                 </button>
