@@ -47,8 +47,6 @@ function NavBar() {
             setResults(err)
         }
     }
-
-
     return (
         <nav className='flex gap-20 items-center justify-between p-5 bg-gray-300 fixed w-full' >
             <img src={Logo} alt="Logo" className='w-[7rem] ml-5 mt-3' />
