@@ -11,7 +11,16 @@ function AdminUsers() {
         const users = await api.get('admin/users')
         setuser(users.data)
         console.log(users);
-
+    }
+    async function ActiveUser(id, status) {
+        try {
+            console.log(id);
+            await api.put(`/admin/EditUser/${id}`, { Status: status })
+            GetUsers()
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
     return (
         <AdminLayout>
@@ -44,8 +53,14 @@ function AdminUsers() {
                                 <td className="py-2 px-3 border">{item.name}</td>
                                 <td className="py-2 px-3 border">{item.email}</td>
                                 <td className="border-b-1 gap-2">
-                                    <button className="bg-red-500 text-white p-5  py-3 rounded hover:bg-red-600">
-                                        Inactive
+                                    <button
+                                        onClick={() => {
+                                            ActiveUser(item._id, !item.isActive); console.log(user);
+                                        }}
+                                        className={`text-white text-2xl px-6 py-3 rounded hover:opacity-90 transition ${item.isActive ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"
+                                            }`}
+                                    >
+                                        {item.isActive ? "Active" : "Inactive"}
                                     </button>
                                 </td>
                             </tr>
