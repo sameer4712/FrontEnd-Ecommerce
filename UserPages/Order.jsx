@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import UserLayout from "../Layout/UserLayout"
 import api from "../Global/Axios"
+import Footer from "../src/Components/Footer"
 
 function Order() {
 
@@ -72,6 +73,7 @@ function Order() {
           <p className="text-center text-gray-600 mt-10">No orders found.</p>
         )}
       </div>
+       <Footer />
     </UserLayout>
   )
 }

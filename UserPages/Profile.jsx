@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import api from "../Global/Axios"
 import { useNavigate } from "react-router-dom"
 import UserLayout from "../Layout/UserLayout"
+import Footer from "../src/Components/Footer"
 
 function Profile() {
     const [data, setdata] = useState('')
@@ -102,6 +103,7 @@ function Profile() {
 
                 )}
             </div>
+            <Footer />
         </UserLayout>
 
 

@@ -42,7 +42,6 @@ function NavBar() {
             const SearchedProduct = await api.get(`/user/search/${searchitem}`)
             setResults(SearchedProduct.data)
 
-
         }
         catch (err) {
             setResults(err)
@@ -108,16 +107,19 @@ function NavBar() {
                 </NavLink>
 
 
+
                 {session ? (
                     session.loggedin ? (
                         <>
                             <span className="font-bold text-xl mt-1">{session.user?.name}</span>
-                            <button onClick={Logout} className="cursor-pointer">
-                                <LogOutIcon size={36} />
-                            </button>
                             <NavLink to="/user/profile">
                                 <UserRoundPen size={36} />
                             </NavLink>
+                            <button onClick={Logout} className="cursor-pointer">
+                                <LogOutIcon size={36} />
+                            </button>
+
+
                         </>
                     ) : (
                         <NavLink to="/user/login">

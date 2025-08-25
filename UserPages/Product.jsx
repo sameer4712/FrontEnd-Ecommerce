@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import api from "../Global/Axios"
 import UserLayout from "../Layout/UserLayout"
+import Footer from "../src/Components/Footer"
 
 function Product() {
     const [quantity, setquantity] = useState(1)
@@ -47,7 +48,6 @@ function Product() {
                 </div>
 
             </div>
-
 
         </UserLayout>
     )

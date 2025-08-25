@@ -4,6 +4,7 @@ import UserLayout from "../Layout/UserLayout"
 import Brand from '../src/assets/brand.jpg'
 import api from "../Global/Axios"
 import { Navigate, useNavigate } from "react-router-dom"
+import Footer from "../src/Components/Footer"
 
 
 function UserHomePage() {
@@ -51,7 +52,7 @@ function UserHomePage() {
 
       <h1 className="text-5xl font-bold text-center mt-10 text-gray-700 font-serif" >Our Products</h1>
 
-      <div className="grid grid-cols-3 justify-around mt-10 p-6 gap-4 cursor-pointer" id="prod">
+      <div className="grid grid-cols-3 justify-around mt-10 p-6 gap-4 cursor-pointer">
         {product.map((item, index) => (
           <div key={index} className="text-center text-xl gap-5" onClick={() => { navigate(`/Product/${item._id}`) }} >
             <img src={"http://localhost:3200/" + item.image} alt="" className="w-full h-[20rem] rounded-xl object-cover" />
@@ -65,7 +66,7 @@ function UserHomePage() {
         <button className="bg-black text-white px-6 py-4 rounded-2xl text-l cursor-pointer font-mono">View All</button>
       </div>
 
-
+      <Footer />
     </UserLayout>
   )
 }

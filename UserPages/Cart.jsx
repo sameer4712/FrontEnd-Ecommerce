@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../Global/Axios";
 import UserLayout from "../Layout/UserLayout"
 import { useNavigate } from "react-router-dom";
+import Footer from "../src/Components/Footer";
 
 
 function Cart() {
@@ -145,6 +146,8 @@ function Cart() {
                     </div>
                 </div>
             )}
+
+            <Footer />
         </UserLayout>
 
     );
