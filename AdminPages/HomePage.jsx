@@ -5,7 +5,9 @@ function HomePage() {
     return (
 
         <AdminLayout>
-            <div>HomePage</div>
+            <div>
+                
+            </div>
         </AdminLayout>
 
 
