@@ -51,10 +51,10 @@ function UserHomePage() {
 
       <h1 className="text-5xl font-bold text-center mt-10 text-gray-700 font-serif" >Our Products</h1>
 
-      <div className="flex justify-around mt-10 p-6 gap-4 cursor-pointer" id="prod">
+      <div className="grid grid-cols-3 justify-around mt-10 p-6 gap-4 cursor-pointer" id="prod">
         {product.map((item, index) => (
           <div key={index} className="text-center text-xl gap-5" onClick={() => { navigate(`/Product/${item._id}`) }} >
-            <img src={"http://localhost:3200/" + item.image} alt="" className="w-full h-[20rem] rounded-l" />
+            <img src={"http://localhost:3200/" + item.image} alt="" className="w-full h-[20rem] rounded-xl object-cover" />
             <p className="font-bold text-2xl mt-3">{item.name}</p>
             <p className="font-medium text-gray-600 mt-1">${item.price} </p>
             <p className="font-serif text-2xl mt-3">{item.description}</p>

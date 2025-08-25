@@ -10,7 +10,7 @@ function Product() {
     const navigate = useNavigate('')
     useEffect(() => {
         GetProduct()
-    }, [])
+    }, [id])
 
 
     async function GetProduct() {
@@ -21,15 +21,13 @@ function Product() {
     async function AddToCart(_id) {
         const cart = await api.post(`/user/cart/${_id}`,{quantity})
         
-
-        
     }
 
     return (
         <UserLayout>
             <div className="flex items-center top-30 absolute left-50 p-10 rounded-xl gap-20">
                 <div>
-                    <img src={"http://localhost:3200/" + product.image} alt="" className="w-[35rem] rounded-xl  shadow-xl shadow-gray-300 p-7" />
+                    <img src={"http://localhost:3200/" + product.image} alt="" className="w-[35rem] h-[23rem] rounded-xl  shadow-xl shadow-gray-300 p-7 object-cover" />
                 </div>
                 <div>
                     <p className="text-2xl font-mono">{product.name}</p>
