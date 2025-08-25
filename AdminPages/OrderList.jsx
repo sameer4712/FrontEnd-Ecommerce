@@ -22,7 +22,7 @@ function OrderList() {
     }
 
     async function ChangeStatus() {
-        const status = await api.put(`/admin/editStatus/${id}`,{deliveryStatus:ship})
+        const status = await api.put(`/admin/editStatus/${id}`, { deliveryStatus: ship })
         GetOrder()
         setchange(false)
     }
@@ -68,7 +68,7 @@ function OrderList() {
                                     {item.deliveryStatus}
                                 </td>
                                 <td className="p-11 border-b-1 flex flex-col gap-2">
-                                    <button className="bg-blue-500 text-white px-2 py-3 rounded hover:bg-blue-600" onClick={() => {setchange(true); setid(item._id)}}>
+                                    <button disabled={item.deliveryStatus == "Delivered"} className="bg-blue-500 text-white px-2 py-3 rounded hover:bg-blue-600 cursor-pointer" onClick={() => { setchange(true); setid(item._id); }}>
                                         Change
                                     </button>
 
@@ -84,21 +84,21 @@ function OrderList() {
                         <div className='flex flex-col font-medium text-xl '>
                             <div >
                                 <label className='pr-5'>Pending</label>
-                                <input type="radio" name='status' value="Pending"  onChange={(e)=>{setship(e.target.value)}}/>
+                                <input type="radio" name='status' value="Pending" onChange={(e) => { setship(e.target.value) }} />
                             </div>
                             <div>
                                 <label className='pr-5'>Shipped</label>
-                                <input type="radio" name='status' value="Shipped"  onChange={(e)=>{setship(e.target.value)}}/>
+                                <input type="radio" name='status' value="Shipped" onChange={(e) => { setship(e.target.value) }} />
                             </div>
                             <div>
                                 <label className='pr-3 '>Delivered</label>
-                                <input type="radio" name='status' value="Delivered"  onChange={(e)=>{setship(e.target.value)}}/>
+                                <input type="radio" name='status' value="Delivered" onChange={(e) => { setship(e.target.value) }} />
                             </div>
                         </div>
 
                         <div className='font-bold flex gap-6 mt-5'>
-                            <button className='text-xl bg-green-400 px-3 py-3 rounded-xl hover:bg-green-500 scale-105 transition-all duration-200 ease-in-out' onClick={()=>ChangeStatus()}>Submit</button>
-                            <button className='text-xl bg-red-400 px-3 py-3 rounded-xl hover:bg-red-500 scale-105 transition-all duration-200 ease-in-out' onClick={()=>setchange(false)}>Close</button>
+                            <button className='text-xl bg-green-400 px-3 py-3 rounded-xl hover:bg-green-500 scale-105 transition-all duration-200 ease-in-out' onClick={() => ChangeStatus()}>Submit</button>
+                            <button className='text-xl bg-red-400 px-3 py-3 rounded-xl hover:bg-red-500 scale-105 transition-all duration-200 ease-in-out' onClick={() => setchange(false)}>Close</button>
                         </div>
 
 
