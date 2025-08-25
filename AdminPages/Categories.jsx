@@ -40,11 +40,15 @@ function Categories() {
     async function RemoveCategory(index) {
 
         const Remove = await api.delete(`/admin/deletecategory/${index}`)
+        if (!Remove.data.success) {
+            alert("couldn't delete cart")
+        }
         GetCategory()
 
     }
     async function EditCategory() {
         const category = await api.put(`/admin/editcategory/${id}`, { name: oldName, description: oldDescription })
+
         GetCategory()
         seteditcategory(false)
     }
