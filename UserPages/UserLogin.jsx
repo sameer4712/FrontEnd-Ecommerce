@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import api from "../Global/Axios"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
@@ -8,6 +8,13 @@ function UserLogin() {
     const [password, setpassword] = useState('')
     const [err, seterr] = useState('')
     const navigate = useNavigate('')
+
+    useEffect(() => {
+        const loggedIn = localStorage.getItem("user")
+        if (loggedIn) {
+            navigate("/")   
+        }
+    }, [])
 
     async function UserLogin() {
         try {
