@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AdminLayout from "../Layout/AdminLayout";
 import api from "../Global/Axios";
+import axios from "axios";
 import Button from "../src/Components/button";
 
 function Products() {
@@ -24,28 +25,33 @@ function Products() {
   const [id, setid] = useState("")
 
 
-  useEffect(() => {
-    GetProduct();
-  }, []);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const ProductsPerPage = 3;
 
-  async function GetProduct() {
+
+  const fetchProducts = async (page) => {
     try {
-      const productList = await api.get("/admin/products");
-      setProduct(productList.data);
-      // console.log(productList);
+      const res = await api.get(`/admin/products?page=${page}&limit=${ProductsPerPage}`);
+
+      setProduct(res.data.products || []);
+      setTotalPages(res.data.totalPages || 1);
     } catch (err) {
-      console.error(err);
+      console.error("Failed to fetch products:", err);
+      setProduct([]);
     }
-  }
+  };
+
+  useEffect(() => {
+    fetchProducts(currentPage);
+  }, [currentPage]);
 
   async function GetAllCategory() {
     const cat = await api.get('/admin/category')
     console.log(cat.data.category);
     getsetcategory(cat.data.category)
 
-
   }
-
 
   async function AddProduct() {
     const formdata = new FormData()
@@ -61,7 +67,7 @@ function Products() {
       }
     })
 
-    GetProduct()
+    fetchProducts(currentPage)
     setshow(false)
     setname('')
     setimage('')
@@ -94,14 +100,14 @@ function Products() {
     })
 
     console.log(updated)
-    GetProduct()
+    fetchProducts(currentPage)
     seteditshow(false)
   }
 
   async function Remove(index) {
 
     const deleteproduct = await api.delete(`/admin/deleteProduct/${index}`)
-    GetProduct()
+    fetchProducts(currentPage)
   }
 
 
@@ -125,10 +131,9 @@ function Products() {
           <tbody className="font-semibold text-[1.1rem]">
             {Product.map((item, index) => (
               <tr
-                key={index}
                 className="text-center hover:bg-gray-100 transition duration-200 hover:scale-101"
               >
-                <td className="py-3 px-4 border">{index + 1}</td>
+                {(currentPage - 1) * ProductsPerPage + (index + 1)}
                 <td className="py-3 px-4 border">
                   <img
                     className="w-[8rem] h-[6rem] object-cover rounded-md"
@@ -166,6 +171,30 @@ function Products() {
         </table>
       </div>
 
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-4 space-x-2">
+          <button
+            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+            disabled={currentPage === 1}
+            className="px-3 py-1 border rounded disabled:opacity-50"
+          >
+            Prev
+          </button>
+          <span className="px-3 py-1">
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() =>
+              setCurrentPage((p) => Math.min(p + 1, totalPages))
+            }
+            disabled={currentPage === totalPages}
+            className="px-3 py-1 border rounded disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      )}
+
       {show && (
         <div>
           <div>
@@ -198,7 +227,7 @@ function Products() {
 
       {editshow && (<div>
         <div>
-          <div className='bg-gray-100 flex flex-col w-[29rem] h-[42rem] p-9 border-1 border-gray-500 rounded-2xl absolute top-40 right-115'>
+          <div className='bg-gray-100 flex flex-col w-[29rem] h-[42rem] p-9 border-1 border-gray-500 rounded-2xl absolute top-10 right-115'>
             <h1 className='text-center mb-10 text-3xl font-bold'>Edit Product</h1>
             <input type="text" value={oldname} onChange={(e) => setoldname(e.target.value)} placeholder='Name' className='border-1 bg-white border-gray-500 p-3 rounded' />
             <input type="text" value={oldprice} onChange={(e) => setoldprice(e.target.value)} placeholder='Price' className='border-1 bg-white border-gray-500 p-3 mt-5 rounded' />
