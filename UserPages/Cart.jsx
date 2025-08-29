@@ -67,7 +67,7 @@ function Cart() {
                                         <img
                                             src={"http://localhost:3200/" + item.image}
                                             alt={item.name}
-                                            className="w-44 h-28 rounded-md"
+                                            className="w-44 h-28 rounded-md object-cover"
                                         />
                                         <div>
                                             <h2 className="font-semibold text-2xl">{item.name}</h2>

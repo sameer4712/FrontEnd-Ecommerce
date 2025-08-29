@@ -27,18 +27,14 @@ function Profile() {
 
     async function UpdateUser() {
         const Data = new FormData()
-        if (oldimage) {
-            Data.append('image', oldimage)
-        }
+        if (oldimage) Data.append('image', oldimage)
         Data.append('name', oldname)
         Data.append('email', oldemail)
 
-        const update = await api.put(`/user/Edit/${id}`, Data, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            }
+        await api.put(`/user/Edit/${id}`, Data, {
+            headers: { "Content-Type": "multipart/form-data" }
         })
-        alert('Updated Successfully..')
+        alert('Profile Updated ✅')
         Getuser()
     }
 
@@ -92,7 +88,7 @@ function Profile() {
                             />
 
                             <button onClick={() => { UpdateUser(id); setshow(false) }}
-                                className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 mt-3 transition-all duration-150 "
+                                className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 mt-3 transition-all duration-150 cursor-pointer"
                             >
                                 Update
                             </button>
