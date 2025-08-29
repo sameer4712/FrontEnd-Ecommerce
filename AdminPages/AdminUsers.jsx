@@ -57,7 +57,7 @@ function AdminUsers() {
                                         onClick={() => {
                                             ActiveUser(item._id, !item.isActive); console.log(user);
                                         }}
-                                        className={`text-white text-2xl px-6 py-3 rounded hover:opacity-90 transition ${item.isActive ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"
+                                        className={`text-white text-2xl px-6 py-3 rounded hover:opacity-90 transition-all cursor-pointer ${item.isActive ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"
                                             }`}
                                     >
                                         {item.isActive ? "Active" : "Inactive"}

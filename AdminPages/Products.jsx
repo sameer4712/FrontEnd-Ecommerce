@@ -33,8 +33,9 @@ function Products() {
   const fetchProducts = async (page) => {
     try {
       const res = await api.get(`/admin/products?page=${page}&limit=${ProductsPerPage}`);
-
-      setProduct(res.data.products || []);
+      console.log(res);
+      setProduct(res.data.prod || []);
+      
       setTotalPages(res.data.totalPages || 1);
     } catch (err) {
       console.error("Failed to fetch products:", err);
@@ -115,7 +116,7 @@ function Products() {
     <AdminLayout>
       <Button name="Add product" onClick={() => { setshow(true); GetAllCategory() }} />
       <div className="px-8 mb-15">
-        <table className="min-w-full bg-[#FAF7F3] ">
+        <table className="min-w-full bg-[#FAF7F3] shadow-xl border-1 border-gray-400">
           <thead className="bg-green-500">
             <tr className="text-[1.2rem]">
               <th className="py-3 px-4 border">_Id</th>
