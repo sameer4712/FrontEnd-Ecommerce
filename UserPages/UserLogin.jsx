@@ -55,12 +55,12 @@ function UserLogin() {
                     <div className='flex flex-col px-[10%] mt-4'>
                         <button className=' bg-green-500 text-white font-semi-bold text-xl px-2 py-3 rounded-xl hover:scale-105 transition-all duration-150 cursor-pointer' onClick={() => UserLogin()}>Log In</button>
                     </div>
-                    <div className="flex flex-col items-center justify-center py-3">
+                    <div className="flex items-center justify-center py-3 gap-3 font-mono">
 
                         <p className="text-lg"> Don't have an Account ?</p>
 
                         <Link to='/user/sign-up'>
-                            <p className="text-lg mt-2 text-blue-700 cursor-pointer" >Sign-Up</p>
+                            <p className="text-lg  text-blue-800 cursor-pointer underline" >Sign-Up</p>
                         </Link>
 
                     </div>
