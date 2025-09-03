@@ -8,10 +8,10 @@ function UserLogin() {
     const [password, setpassword] = useState('')
     const [err, seterr] = useState('')
     const navigate = useNavigate('')
-    
+
     useEffect(() => {
         const loggedIn = localStorage.getItem("user")
-        if (loggedIn) {
+        if (loggedIn == true) {
             navigate("/")
         }
     }, [])
