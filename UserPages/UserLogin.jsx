@@ -10,7 +10,7 @@ function UserLogin() {
     const navigate = useNavigate('')
 
     useEffect(() => {
-        const loggedIn = localStorage.getItem("user")
+        const loggedIn = JSON.parse(localStorage.getItem("user"))
         if (loggedIn == true) {
             navigate("/")
         }
@@ -25,7 +25,7 @@ function UserLogin() {
 
             const user = await api.post('/user/Login', info)
             if (user.data.success) {
-                localStorage.setItem('user', true)
+                localStorage.setItem('user', JSON.stringify(true))
                 navigate('/')
             }
             else {
