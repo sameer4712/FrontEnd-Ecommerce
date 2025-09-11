@@ -31,7 +31,6 @@ function UserLogin() {
             else {
                 seterr(user.data.message)
             }
-
         }
         catch (error) {
             console.log(error);
