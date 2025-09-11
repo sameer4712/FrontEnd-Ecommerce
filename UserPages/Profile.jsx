@@ -79,7 +79,6 @@ function Profile() {
                                 value={oldemail} onChange={(e) => { setoldemail(e.target.value) }}
                             />
 
-
                             <input
                                 type="file"
                                 accept="image/*" name="image"
