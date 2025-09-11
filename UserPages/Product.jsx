@@ -41,7 +41,6 @@ function Product() {
                             <button className="text-4xl ml-1 cursor-pointer" onClick={() => setquantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
                         </div>
 
-
                     </div>
                     <p className="text-2xl font-mono mt-2 mb-5">{product.description}</p>
                     <button onClick={() => {AddToCart(product._id); navigate('/user/cart')}} className="mt-8 bg-blue-300 shadow-xl p-5 text-gray-600 cursor-pointer rounded-xl text-xl font-semibold hover:bg-blue-400 hover:scale-110 transition-all duration-200 ease-in-out"> Add to Cart</button>
