@@ -29,7 +29,6 @@ function AdminLogin() {
         }
     }
 
-
     return (
         <div className='h-screen w-screen flex justify-center items-center px-4 bg-gradient-to-r from-blue-400 via-gray-200'>
             
