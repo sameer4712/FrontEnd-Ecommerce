@@ -33,7 +33,6 @@ function Cart() {
     async function CheckOrder() {
         const order = await api.post('/user/CreateOrder')
         ShowCart()
-
     }
     async function DeleteOrder(_id) {
         const remove = await api.delete(`/user/deleteCart/${_id}`)
