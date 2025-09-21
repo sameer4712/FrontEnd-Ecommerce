@@ -9,5 +9,4 @@ function Button({name,onClick}) {
         </button>
     )
 }
-
 export default Button
