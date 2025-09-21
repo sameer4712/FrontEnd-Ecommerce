@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AdminLayout from "../Layout/AdminLayout";
 import api from "../Global/Axios";
 import axios from "axios";
-import Button from "../src/Components/button";
+import Button from "../src/Components/Button";
 
 function Products() {
   const [Product, setProduct] = useState([]);
